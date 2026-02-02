@@ -22,6 +22,37 @@
 // We store the “name” of the current screen as a string.
 // Only one screen should be active at a time.
 let currentScreen = "start"; // "start" | "instr" | "game" | "win" | "lose"
+// ------------------------------
+// Player stats (persist across scenes)
+// ------------------------------
+let player;
+
+function resetPlayer() {
+  player = {
+    karma: 0,
+    trust: 0,
+    health: 3,
+  };
+}
+
+function drawHUD() {
+  push();
+  noStroke();
+  fill(0, 120);
+  rectMode(CORNER);
+  rect(18, 18, 210, 90, 10);
+  fill(255);
+  textAlign(LEFT, TOP);
+  textSize(16);
+  text(`Karma: ${player.karma}`, 30, 30);
+  text(`Trust: ${player.trust}`, 30, 52);
+  text(`Health: ${player.health}`, 30, 74);
+  pop();
+}
+
+function goTo(screenName) {
+  currentScreen = screenName;
+}
 
 // ------------------------------
 // setup() runs ONCE at the beginning
@@ -34,6 +65,7 @@ function setup() {
   // (This can be changed later per-screen if you want.)
   textFont("sans-serif");
 }
+resetPlayer();
 
 // ------------------------------
 // draw() runs every frame (many times per second)
@@ -51,8 +83,13 @@ function draw() {
   if (currentScreen === "start") drawStart();
   else if (currentScreen === "instr") drawInstr();
   else if (currentScreen === "game") drawGame();
+  else if (currentScreen === "sceneA") drawSceneA();
+  else if (currentScreen === "sceneB") drawSceneB();
+  else if (currentScreen === "endingCheck") drawEndingCheck();
   else if (currentScreen === "win") drawWin();
   else if (currentScreen === "lose") drawLose();
+
+  drawHUD(); // Draw the player's stats HUD on top of everything else
 
   // (Optional teaching note)
   // This “if/else chain” is a very common early approach.
@@ -80,6 +117,8 @@ function mousePressed() {
   // This prevents errors if a screen doesn’t implement a handler.
   else if (currentScreen === "win") winMousePressed?.();
   else if (currentScreen === "lose") loseMousePressed?.();
+  else if (currentScreen === "sceneA") sceneAMousePressed?.();
+  else if (currentScreen === "sceneB") sceneBMousePressed?.();
 }
 
 // ------------------------------
@@ -99,6 +138,8 @@ function keyPressed() {
   else if (currentScreen === "game") gameKeyPressed?.();
   else if (currentScreen === "win") winKeyPressed?.();
   else if (currentScreen === "lose") loseKeyPressed?.();
+  else if (currentScreen === "sceneA") sceneAKeyPressed?.();
+  else if (currentScreen === "sceneB") sceneBKeyPressed?.();
 }
 
 // ------------------------------------------------------------

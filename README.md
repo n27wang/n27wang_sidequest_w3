@@ -1,28 +1,31 @@
 ## Project Title
 
-GBDA302 Week 3 Example 1: Instructions Screen with Back button
+GBDA302 Side Quest Week 3
 
 ---
 
 ## Authors
 
-Karen Cochrane and David Han
-
----
+Nick Wang (21064962)
 
 ## Description
 
-This p5.js project demonstrates a simple multi-screen game structure using a state-based approach. The example includes a start screen, an instructions screen with a back button, a basic game screen, and win/lose outcome screens. The focus is on showing how to separate screens into different files, route input based on the current game state, and design simple UI elements such as buttons and keyboard controls.
+This project is an interactive story built with p5.js that unfolds through multiple game states across separate files. The experience is structured as a small branching decision tree, where the player makes choices that influence how the story progresses. Each screen represents a different narrative moment, and player actions lead to different paths and outcomes rather than a single linear ending.
+To deepen the interaction, the game tracks persistent player stats such as karma, trust, and health across scenes. These values reflect the player’s decisions and are used to determine which ending is unlocked, reinforcing the idea that choices have consequences within the system.
 
 ---
 
 ## Learning Goals
 
-- Understand how to manage multiple game states using a shared currentScreen variable
-- Practice separating code across multiple files for readability and maintenance
-- Implement clickable and keyboard-accessible UI buttons
-- Learn how to route draw(), mousePressed(), and keyPressed() logic based on the active screen
-- Build a basic instructions screen with a functional back button
+Practice building a multi-file p5.js project using a state-based structure to manage screens and game flow
+
+Explore how branching narratives and decision trees can be implemented through simple player choices
+
+Learn how to track and update player variables across scenes to create persistent consequences
+
+Understand how game mechanics (stats and endings) can be used to express narrative meaning and emotion
+
+Improve code organization and readability by separating logic into distinct files and states
 
 ---
 
@@ -35,5 +38,6 @@ N/A
 ## GenAI
 
 The code was written by Dr. Karen Cochrane but she used GenAI to write the comments.
+For me I use Chatgpt to help me generate the code.
 
 ---

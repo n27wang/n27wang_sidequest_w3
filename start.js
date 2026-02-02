@@ -62,8 +62,10 @@ function startMousePressed() {
 
   // If START is clicked, go to the game screen
   if (isHover(startBtn)) {
+    resetPlayer(); // ⭐ 新增：重置玩家状态
     currentScreen = "game";
   }
+
   // If INSTRUCTIONS is clicked, go to the instructions screen
   else if (isHover(instrBtn)) {
     currentScreen = "instr";
@@ -78,6 +80,7 @@ function startMousePressed() {
 // - I opens instructions
 function startKeyPressed() {
   if (keyCode === ENTER) {
+    resetPlayer();
     currentScreen = "game";
   }
 
