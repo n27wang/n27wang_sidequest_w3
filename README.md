@@ -37,7 +37,6 @@ N/A
 
 ## GenAI
 
-The code was written by Dr. Karen Cochrane but she used GenAI to write the comments.
-For me I use Chatgpt to help me generate the code.
+I use Chatgpt to help me generate the code.
 
 ---
